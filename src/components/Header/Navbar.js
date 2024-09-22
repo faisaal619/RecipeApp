@@ -6,24 +6,24 @@ import {IoMdMenu} from "react-icons/io";
 import { useSidebarContext } from '../../context/sidebarContext';
 
 const Navbar = () => {
-const {openSidebar} = useSidebarContext();
-const{scrolled, setScrolled} = useState(false);
+  const {openSidebar} = useSidebarContext();
+  const [scrolled, setScrolled] = useState(false);
 
-const handleScroll = () => {
-  const offset = window.scrollY
-  if (offset > 60 ) {
-    setScrolled(true);
-  } else {
-    setScrolled(false);
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if(offset > 60){
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
   }
-}
 
 useEffect(() => {
   window.addEventListener('scroll', handleScroll);
 })
 
   return (
-    <nav className={'navbar bg-orange flex align-center'} >
+    <nav className={`navbar bg-orange flex align-center ${scrolled ? 'scrolled': ""}`}>
     <div className='container w-100'>
     <div className='navbar-content text-white'>
     <div className='brand-and-toggler flex align-center justify-between'>

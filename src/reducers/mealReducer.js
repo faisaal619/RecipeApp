@@ -40,7 +40,7 @@ export const mealReducer = (state, action) => {
             }
             case FETCH_MEALS_SUCCESS: 
             return {
-                ...state,
+                 ...state,
                 mealsLoading: false ,
                 meals: action.payload
             }
